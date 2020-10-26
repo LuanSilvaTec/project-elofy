@@ -1,10 +1,12 @@
 import { Router } from 'express';
-
+import PersonController from './controllers/PersonController'
 const routes = Router();
 
-routes.get('/person',(request, response)=>{
-    return response.json({message:"Teste"})
-})
+const personController = new PersonController()
 
 
+
+routes.get('/person', personController.index)
+routes.get('/person/:id', personController.show)
+routes.post('/person', personController.createPerson)
 export default routes;
