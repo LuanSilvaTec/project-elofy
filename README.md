@@ -1,7 +1,7 @@
 # Projeto Elofy
 <div align="center">
  
-<img src="./elofy.gif" style=" width:50px;height: 50px;"/>
+<img src="./elofy.gif" width="50%"/>
 
 </div>
 - Este projeto foi desenvolvido para atender aos requisitos do processo seletivo da Elofy. A Stack escolhida para o desenvolvimento do projeto foi a pilha de tecnologias Javascript (com Typescript).
