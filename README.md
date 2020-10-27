@@ -14,7 +14,8 @@
 1. Knex
 2. Material - UI
 3. React Router Dom
-4.
+4. Cors
+5. Axios
 
 ## Descrição da tarefa
 - Uma empresa responsável por fazer lanches saudáveis para colaboradores guarda as informações referentes a essas pessoas em uma tabela em formato csv. A demanda deles e poder ter estas informações em uma aplicação que permita, consultar os dados e filtrá-los.
