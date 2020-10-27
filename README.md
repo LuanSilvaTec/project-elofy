@@ -1,5 +1,5 @@
 # Projeto Elofy
-<div align="center" style=" width: 100px;height: 50px;">
+<div align="center" style=" width:50px;height: 50px;">
  
 ![Demo CountPages alpha](./elofy.gif)
 
