@@ -49,12 +49,12 @@ Utilizar tabela abaixo para a relação:
 
 ## Execução do projeto do Frontend
 - Para executar o projeto do frontend basta executar os seguintes comandos:
-1. yarn install
-2. yarn start
+1. ```yarn install```
+2. ```yarn start```
 
 ## Execução do projeto do Backend
 - Para executar o projeto do backend basta executar os seguintes comandos:
 1. ```yarn install```
-2. yarn dev
+2. ```yarn dev```
 
 obs:Dev é um script que inicializa o ts-node-dev (Veja o arquivo package.json)
