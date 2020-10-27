@@ -11,7 +11,10 @@
 3. Express
 4. Typescript
 ## Bibliotecas utilizadas
-1. 
+1. Knex
+2. Material - UI
+3. React Router Dom
+4.
 
 ## Descrição da tarefa
 - Uma empresa responsável por fazer lanches saudáveis para colaboradores guarda as informações referentes a essas pessoas em uma tabela em formato csv. A demanda deles e poder ter estas informações em uma aplicação que permita, consultar os dados e filtrá-los.
@@ -43,3 +46,15 @@ Utilizar tabela abaixo para a relação:
 - [x] Filtragem dos dados
 - [ ] Cadastrar pessoa
 - [ ] Barra de busca
+
+## Execução do projeto do Frontend
+- Para executar o projeto do frontend basta executar os seguintes comandos:
+1. yarn install
+2. yarn start
+
+## Execução do projeto do Backend
+- Para executar o projeto do backend basta executar os seguintes comandos:
+1. ```yarn install```
+2. yarn dev
+
+obs:Dev é um script que inicializa o ts-node-dev (Veja o arquivo package.json)
