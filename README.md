@@ -1,4 +1,9 @@
 # Projeto Elofy
+<div align="center">
+ 
+[![Demo CountPages alpha](./elofy.gif)]
+
+</div>
 - Este projeto foi desenvolvido para atender aos requisitos do processo seletivo da Elofy. A Stack escolhida para o desenvolvimento do projeto foi a pilha de tecnologias Javascript (com Typescript).
 ## Tecnologias utilizadas
 1. React
