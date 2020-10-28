@@ -1,0 +1,23 @@
+.search{
+
+    
+    padding: 20px 20px;
+    float: right;
+    top: 1%;
+}
+.search--input{
+    background-color: #FFF;
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+}
+.header{
+    height: 70px;
+    background-color: #F6F6F6;
+}
+.header--btn{
+    padding: 2px 1em 0 1em;
+    top: 2ch;
+    left: 10px;
+}

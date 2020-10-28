@@ -21,9 +21,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import './styles.css'
 import api from '../../services/api'
-
-
-
+import SearchIcon from '@material-ui/icons/Search';
 import Button from '@material-ui/core/Button';
 import Avatar from '@material-ui/core/Avatar';
 import List from '@material-ui/core/List';
@@ -33,11 +31,11 @@ import ListItemText from '@material-ui/core/ListItemText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Dialog from '@material-ui/core/Dialog';
 import PersonIcon from '@material-ui/icons/Person';
-import AddIcon from '@material-ui/icons/Add';
-import { blue } from '@material-ui/core/colors';
-import { Container } from '@material-ui/core';
 
-const filtros = ["Default", "Pessoas acima do peso", "Pessoas no peso ideal", "Pessoas abaixo do peso", "Pessoas altas", "Pessoas medianas", "Pessoas baixas", "Pessoas intolerantes a lactose", "Pessoas atletas"];
+import { blue } from '@material-ui/core/colors';
+import { Container, TextField } from '@material-ui/core';
+
+const filtros = ["Todas as pessoas", "Pessoas acima do peso", "Pessoas no peso ideal", "Pessoas abaixo do peso", "Pessoas altas", "Pessoas medianas", "Pessoas baixas", "Pessoas intolerantes a lactose", "Pessoas atletas"];
 const useStylesDialog = makeStyles({
     avatar: {
         backgroundColor: blue[100],
@@ -368,28 +366,28 @@ export default function EnhancedTable() {
     //  Pessoas atletas 0=Não 1=Sim / Pessoas intolerantes a lactose  0=Não 1=Sim
     let filteredRow = rows.filter(
         (row) => {
-            if (selectedValue == 'Pessoas acima do peso') {
+            if (selectedValue === 'Pessoas acima do peso') {
                 return row.peso > 90
-            } else if (selectedValue == 'Pessoas no peso ideal') {
+            } else if (selectedValue === 'Pessoas no peso ideal') {
                 return row.peso > 70 && row.peso <= 89
             }
-            else if (selectedValue == 'Pessoas abaixo do peso') {
+            else if (selectedValue === 'Pessoas abaixo do peso') {
                 return row.peso < 69
             }
-            else if (selectedValue == 'Pessoas altas') {
+            else if (selectedValue === 'Pessoas altas') {
                 return row.altura > 1.8
             }
-            else if (selectedValue == 'Pessoas medianas') {
+            else if (selectedValue === 'Pessoas medianas') {
                 return row.altura >= 1.60 && row.altura <= 1.79
             }
-            else if (selectedValue == 'Pessoas baixas') {
+            else if (selectedValue === 'Pessoas baixas') {
                 return row.altura < 1.59
             }
-            else if (selectedValue == 'Pessoas intolerantes a lactose') {
-                return row.lactose == 1
+            else if (selectedValue === 'Pessoas intolerantes a lactose') {
+                return row.lactose === 1
             }
-            else if (selectedValue == 'Pessoas atletas') {
-                return row.atleta == 1
+            else if (selectedValue === 'Pessoas atletas') {
+                return row.atleta === 1
             }
             else
                 return row;
@@ -398,10 +396,17 @@ export default function EnhancedTable() {
         <div className={classes.root}>
             <Paper className={classes.paper}>
                 <EnhancedTableToolbar numSelected={selected.length} />
-                <div>
-                    <Button variant="outlined" color="primary" onClick={handleClickOpen}>
+                <div className="header">
+                    <Button className="header--btn" variant="outlined" color="primary" onClick={handleClickOpen}>
                         <FilterListIcon />
                     </Button>
+                    
+                    <div className="search">
+                        <div className="search--input">
+                        <SearchIcon/>
+                            <input  type="search"  />
+                        </div>
+                    </div>
                     <SimpleDialog selectedValue={selectedValue} open={open} onClose={handleClose} />
                 </div>
                 <TableContainer>
