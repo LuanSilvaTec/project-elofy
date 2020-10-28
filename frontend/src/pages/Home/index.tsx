@@ -23,6 +23,68 @@ import './styles.css'
 import api from '../../services/api'
 
 
+
+import Button from '@material-ui/core/Button';
+import Avatar from '@material-ui/core/Avatar';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemAvatar from '@material-ui/core/ListItemAvatar';
+import ListItemText from '@material-ui/core/ListItemText';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import Dialog from '@material-ui/core/Dialog';
+import PersonIcon from '@material-ui/icons/Person';
+import AddIcon from '@material-ui/icons/Add';
+import { blue } from '@material-ui/core/colors';
+import { Container } from '@material-ui/core';
+
+const filtros = ["Default", "Pessoas acima do peso", "Pessoas no peso ideal", "Pessoas abaixo do peso", "Pessoas altas", "Pessoas medianas", "Pessoas baixas", "Pessoas intolerantes a lactose", "Pessoas atletas"];
+const useStylesDialog = makeStyles({
+    avatar: {
+        backgroundColor: blue[100],
+        color: blue[600],
+    },
+});
+
+export interface SimpleDialogProps {
+    open: boolean;
+    selectedValue: string;
+    onClose: (value: string) => void;
+}
+
+function SimpleDialog(props: SimpleDialogProps) {
+    const classes = useStylesDialog();
+    const { onClose, selectedValue, open } = props;
+
+    const handleClose = () => {
+        onClose(selectedValue);
+    };
+
+    const handleListItemClick = (value: string) => {
+        onClose(value);
+    };
+
+    return (
+        <Dialog onClose={handleClose} aria-labelledby="simple-dialog-title" open={open}>
+            <DialogTitle id="simple-dialog-title">Qual filtro deseja aplicar ?</DialogTitle>
+            <List>
+                {filtros.map((filtro) => (
+                    <ListItem button onClick={() => handleListItemClick(filtro)} key={filtro}>
+                        <ListItemAvatar>
+                            <Avatar className={classes.avatar}>
+                                <PersonIcon />
+                            </Avatar>
+                        </ListItemAvatar>
+                        <ListItemText primary={filtro} />
+                    </ListItem>
+                ))}
+
+            </List>
+        </Dialog>
+    );
+}
+
+
+
 interface Person {
     id_person: number;
     nome_usuario: string;
@@ -163,6 +225,7 @@ const EnhancedTableToolbar = (props: EnhancedTableToolbarProps) => {
     const classes = useToolbarStyles();
     const { numSelected } = props;
 
+
     return (
         <Toolbar
             className={clsx(classes.root, {
@@ -187,7 +250,7 @@ const EnhancedTableToolbar = (props: EnhancedTableToolbarProps) => {
             ) : (
                     <Tooltip title="Filter list">
                         <IconButton aria-label="filter list">
-                            <FilterListIcon />
+
                         </IconButton>
                     </Tooltip>
                 )}
@@ -231,6 +294,18 @@ export default function EnhancedTable() {
     const [dense, setDense] = React.useState(false);
     const [rowsPerPage, setRowsPerPage] = React.useState(5);
 
+
+    const [open, setOpen] = React.useState(false);
+    const [selectedValue, setSelectedValue] = React.useState(filtros[0]);
+    console.log(selectedValue)
+    const handleClickOpen = () => {
+        setOpen(true);
+    };
+
+    const handleClose = (value: string) => {
+        setOpen(false);
+        setSelectedValue(value);
+    };
 
 
     useEffect(() => {
@@ -285,18 +360,50 @@ export default function EnhancedTable() {
         setPage(0);
     };
 
-    const handleChangeDense = (event: React.ChangeEvent<HTMLInputElement>) => {
-        setDense(event.target.checked);
-    };
 
     const isSelected = (name: string) => selected.indexOf(name) !== -1;
 
     const emptyRows = rowsPerPage - Math.min(rowsPerPage, rows.length - page * rowsPerPage);
 
+    //  Pessoas atletas 0=Não 1=Sim / Pessoas intolerantes a lactose  0=Não 1=Sim
+    let filteredRow = rows.filter(
+        (row) => {
+            if (selectedValue == 'Pessoas acima do peso') {
+                return row.peso > 90
+            } else if (selectedValue == 'Pessoas no peso ideal') {
+                return row.peso > 70 && row.peso <= 89
+            }
+            else if (selectedValue == 'Pessoas abaixo do peso') {
+                return row.peso < 69
+            }
+            else if (selectedValue == 'Pessoas altas') {
+                return row.altura > 1.8
+            }
+            else if (selectedValue == 'Pessoas medianas') {
+                return row.altura >= 1.60 && row.altura <= 1.79
+            }
+            else if (selectedValue == 'Pessoas baixas') {
+                return row.altura < 1.59
+            }
+            else if (selectedValue == 'Pessoas intolerantes a lactose') {
+                return row.lactose == 1
+            }
+            else if (selectedValue == 'Pessoas atletas') {
+                return row.atleta == 1
+            }
+            else
+                return row;
+        });
     return (
         <div className={classes.root}>
             <Paper className={classes.paper}>
                 <EnhancedTableToolbar numSelected={selected.length} />
+                <div>
+                    <Button variant="outlined" color="primary" onClick={handleClickOpen}>
+                        <FilterListIcon />
+                    </Button>
+                    <SimpleDialog selectedValue={selectedValue} open={open} onClose={handleClose} />
+                </div>
                 <TableContainer>
                     <Table
                         className={classes.table}
@@ -314,7 +421,7 @@ export default function EnhancedTable() {
                             rowCount={rows.length}
                         />
                         <TableBody>
-                            {stableSort(rows, getComparator(order, orderBy))
+                            {stableSort(filteredRow, getComparator(order, orderBy))
                                 .slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                                 .map((row, index) => {
                                     const isItemSelected = isSelected(row.nome_usuario);
