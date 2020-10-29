@@ -45,7 +45,7 @@ Utilizar tabela abaixo para a relação:
 
 ## Resultado parcial
 <div align="center">
-<img src="./gifs/system.gif" width="50%"/>
+<img src="./gifs/system.gif" width="100%"/>
 </div>
 
 ## Futuras implementações
