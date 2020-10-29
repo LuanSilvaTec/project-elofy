@@ -209,6 +209,7 @@ const useToolbarStyles = makeStyles((theme: Theme) =>
                 },
         title: {
             flex: '1 1 100%',
+            fontFamily:"Verdana"
 
         },
     }),
