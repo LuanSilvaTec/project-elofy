@@ -155,7 +155,7 @@ function EnhancedTableHead(props: EnhancedTableProps) {
     };
 
     return (
-        <TableHead style={{backgroundColor:"#F6F6F6"}}>
+        <TableHead style={{ backgroundColor: "#F6F6F6" }}>
             <TableRow>
                 <TableCell padding="checkbox">
                     <Checkbox
@@ -209,7 +209,7 @@ const useToolbarStyles = makeStyles((theme: Theme) =>
                 },
         title: {
             flex: '1 1 100%',
-            
+
         },
     }),
 );
@@ -397,22 +397,22 @@ export default function EnhancedTable() {
                 <EnhancedTableToolbar numSelected={selected.length} />
                 <div className="header">
                     <div className="filter--btn">
-                    <Button  variant="outlined" color="primary" onClick={handleClickOpen}>
-                        <FilterListIcon />
-                    </Button>
+                        <Button variant="outlined" color="primary" onClick={handleClickOpen}>
+                            <FilterListIcon />
+                        </Button>
                     </div>
-                    
+
                     <div className="search">
                         <div className="search--input">
-                        <SearchIcon/>
-                            <input  type="search"  />
+                            <SearchIcon />
+                            <input type="search" />
                         </div>
                     </div>
                     <SimpleDialog selectedValue={selectedValue} open={open} onClose={handleClose} />
 
                     <div className="add-person">
                         <Button>
-                            <AddCircleOutlineIcon/> 
+                            <AddCircleOutlineIcon />
                             <span>Adicionar pessoa</span>
                         </Button>
                     </div>
@@ -432,7 +432,7 @@ export default function EnhancedTable() {
                             onSelectAllClick={handleSelectAllClick}
                             onRequestSort={handleRequestSort}
                             rowCount={rows.length}
-                            
+
                         />
                         <TableBody>
                             {stableSort(filteredRow, getComparator(order, orderBy))
@@ -450,7 +450,7 @@ export default function EnhancedTable() {
                                             tabIndex={-1}
                                             key={row.nome_usuario}
                                             selected={isItemSelected}
-                                            
+
                                         >
                                             <TableCell padding="checkbox">
                                                 <Checkbox
@@ -484,7 +484,7 @@ export default function EnhancedTable() {
                     page={page}
                     onChangePage={handleChangePage}
                     onChangeRowsPerPage={handleChangeRowsPerPage}
-                    style={{backgroundColor:"#F6F6F6"}}
+                    style={{ backgroundColor: "#F6F6F6" }}
                 />
             </Paper>
 
