@@ -8,6 +8,7 @@ import Paper from '@material-ui/core/Paper';
 import Checkbox from '@material-ui/core/Checkbox';
 import IconButton from '@material-ui/core/IconButton';
 import Tooltip from '@material-ui/core/Tooltip';
+import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 //import FormControlLabel from '@material-ui/core/FormControlLabel';
 //import Switch from '@material-ui/core/Switch';
 import DeleteIcon from '@material-ui/icons/Delete';
@@ -133,11 +134,11 @@ interface HeadCell {
 }
 
 const headCells: HeadCell[] = [
-    { id: 'nome_usuario', numeric: false, disablePadding: true, label: 'Nome' },
-    { id: 'altura', numeric: true, disablePadding: false, label: 'Altura' },
-    { id: 'lactose', numeric: true, disablePadding: false, label: 'Lactose' },
-    { id: 'peso', numeric: true, disablePadding: false, label: 'Peso' },
-    { id: 'atleta', numeric: true, disablePadding: false, label: 'Atleta' },
+    { id: 'nome_usuario', numeric: false, disablePadding: true, label: 'NOME' },
+    { id: 'altura', numeric: true, disablePadding: false, label: 'ALTURA' },
+    { id: 'lactose', numeric: true, disablePadding: false, label: 'LACTOSE' },
+    { id: 'peso', numeric: true, disablePadding: false, label: 'PESO' },
+    { id: 'atleta', numeric: true, disablePadding: false, label: 'ATLETA' },
 ];
 
 interface EnhancedTableProps {
@@ -157,7 +158,7 @@ function EnhancedTableHead(props: EnhancedTableProps) {
     };
 
     return (
-        <TableHead>
+        <TableHead style={{backgroundColor:"#F6F6F6"}}>
             <TableRow>
                 <TableCell padding="checkbox">
                     <Checkbox
@@ -211,6 +212,7 @@ const useToolbarStyles = makeStyles((theme: Theme) =>
                 },
         title: {
             flex: '1 1 100%',
+            
         },
     }),
 );
@@ -397,9 +399,11 @@ export default function EnhancedTable() {
             <Paper className={classes.paper}>
                 <EnhancedTableToolbar numSelected={selected.length} />
                 <div className="header">
-                    <Button className="header--btn" variant="outlined" color="primary" onClick={handleClickOpen}>
+                    <div className="filter--btn">
+                    <Button  variant="outlined" color="primary" onClick={handleClickOpen}>
                         <FilterListIcon />
                     </Button>
+                    </div>
                     
                     <div className="search">
                         <div className="search--input">
@@ -408,6 +412,13 @@ export default function EnhancedTable() {
                         </div>
                     </div>
                     <SimpleDialog selectedValue={selectedValue} open={open} onClose={handleClose} />
+
+                    <div className="add-person">
+                        <Button>
+                            <AddCircleOutlineIcon/> 
+                            <span>Adicionar pessoa</span>
+                        </Button>
+                    </div>
                 </div>
                 <TableContainer>
                     <Table
@@ -424,6 +435,7 @@ export default function EnhancedTable() {
                             onSelectAllClick={handleSelectAllClick}
                             onRequestSort={handleRequestSort}
                             rowCount={rows.length}
+                            
                         />
                         <TableBody>
                             {stableSort(filteredRow, getComparator(order, orderBy))
@@ -441,6 +453,7 @@ export default function EnhancedTable() {
                                             tabIndex={-1}
                                             key={row.nome_usuario}
                                             selected={isItemSelected}
+                                            
                                         >
                                             <TableCell padding="checkbox">
                                                 <Checkbox
@@ -448,7 +461,7 @@ export default function EnhancedTable() {
                                                     inputProps={{ 'aria-labelledby': labelId }}
                                                 />
                                             </TableCell>
-                                            <TableCell component="th" id={labelId} scope="row" padding="none">
+                                            <TableCell component="th" id={labelId} scope="row" padding="none" >
                                                 {row.nome_usuario}
                                             </TableCell>
                                             <TableCell align="right">{row.altura}</TableCell>
@@ -474,6 +487,7 @@ export default function EnhancedTable() {
                     page={page}
                     onChangePage={handleChangePage}
                     onChangeRowsPerPage={handleChangeRowsPerPage}
+                    style={{backgroundColor:"#F6F6F6"}}
                 />
             </Paper>
 
