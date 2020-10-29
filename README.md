@@ -23,7 +23,7 @@
 - Back-end: Utilizar banco de dados e serviços para consultar as informações.
 - Front-end: Utilizar um dos layout sugeridos abaixo como referência . É importante que sejam utilizados padrões de cores, espaçamentos, font e ícones, independente do layout escolhido.
 ### Passos:
-1. Criar uma aplicação capaz de ler uma tabela de pessoas em umbanco de dados qualquer e realizar filtros.
+1. Criar uma aplicação capaz de ler uma tabela de pessoas em um banco de dados qualquer e realizar filtros.
 2. Listar essas informações em tabela simples. (conforme layout escolhido)
 3. Permitir filtros.
 ### Filtros desejados:
