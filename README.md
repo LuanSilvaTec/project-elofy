@@ -42,6 +42,12 @@ Utilizar tabela abaixo para a relação:
 - 70 - 89 > Peso ideal
 - 69 > Abaixo do peso
 
+
+## Resultado parcial
+<div align="center">
+<img src="./gifs/system.gif" width="50%"/>
+</div>
+
 ## Futuras implementações
 - [x] Buscar pessoas do banco de dados
 - [x] Filtragem dos dados
