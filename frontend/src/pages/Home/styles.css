@@ -5,7 +5,6 @@
     top: 1%;
 }
 .search--input{
-    background-color: #FFF;
     width: 100%;
     border-radius: 20px;
     display: flex;
@@ -29,16 +28,19 @@
 }
 
 .add-person{
-    background-color: blue;
     padding: 2px 1em 0 1em;
     width: 200px;
     height: 40px;
-    border-radius: 0.2;
+    border-radius: 0.9;
     float: right;
+    
+}
+.add-person button{
+    background-color: blue;
     
 }
 .add-person span{
     font-family: Verdana, Geneva, Tahoma, sans-serif;
-    color: #FFF;
+    color: #000000;
     padding: 0 0;
 }

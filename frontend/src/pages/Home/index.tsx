@@ -9,8 +9,6 @@ import Checkbox from '@material-ui/core/Checkbox';
 import IconButton from '@material-ui/core/IconButton';
 import Tooltip from '@material-ui/core/Tooltip';
 import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
-//import FormControlLabel from '@material-ui/core/FormControlLabel';
-//import Switch from '@material-ui/core/Switch';
 import DeleteIcon from '@material-ui/icons/Delete';
 import FilterListIcon from '@material-ui/icons/FilterList';
 import TableContainer from '@material-ui/core/TableContainer';
@@ -32,9 +30,8 @@ import ListItemText from '@material-ui/core/ListItemText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Dialog from '@material-ui/core/Dialog';
 import PersonIcon from '@material-ui/icons/Person';
-
 import { blue } from '@material-ui/core/colors';
-import { Container, TextField } from '@material-ui/core';
+
 
 const filtros = ["Todas as pessoas", "Pessoas acima do peso", "Pessoas no peso ideal", "Pessoas abaixo do peso", "Pessoas altas", "Pessoas medianas", "Pessoas baixas", "Pessoas intolerantes a lactose", "Pessoas atletas"];
 const useStylesDialog = makeStyles({
