@@ -58,10 +58,11 @@ Utilizar tabela abaixo para a relação:
 - Para executar o projeto do frontend basta executar os seguintes comandos:
 1. ```yarn install```
 2. ```yarn start```
-
+3. http://localhost:3000/
 ## Execução do projeto do Backend
 - Para executar o projeto do backend basta executar os seguintes comandos:
 1. ```yarn install```
 2. ```yarn dev```
+3. http://localhost:3333/
 
-obs:Dev é um script que inicializa o ts-node-dev (Veja o arquivo package.json)
+obs: dev é um script que inicializa o ts-node-dev (Veja o arquivo package.json)
